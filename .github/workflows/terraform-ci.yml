@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+         client-id: f2d6b47c-ac15-4469-b5d9-00afcaf98460
+         tenant-id: 1ce7e532-f62f-49bc-91b1-3716ea39804c
+         subscription-id: 2af005be-2d1e-433d-9706-23de28efc5b5   
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
