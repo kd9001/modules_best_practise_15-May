@@ -3,7 +3,7 @@ name: Terraform CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
+  
 
 permissions:
     id-token: write
@@ -23,9 +23,9 @@ jobs:
       - name: Azure Login (OIDC)
         uses: azure/login@v2
         with:
-         client-id: f2d6b47c-ac15-4469-b5d9-00afcaf98460
-         tenant-id: 1ce7e532-f62f-49bc-91b1-3716ea39804c
-         subscription-id: 2af005be-2d1e-433d-9706-23de28efc5b5   
+         client-id: f2d6b47c-ac15-4469-b5d9-00afcaf98460 
+         tenant-id: 1ce7e532-f62f-49bc-91b1-3716ea39804c  
+         subscription-id: 2af005be-2d1e-433d-9706-23de28efc5b5
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -39,6 +39,21 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform plan
-        run: terraform plan
+      - name: Terraform Plan (save output)
+        run: terraform plan -out=tfplan
+
+      - name: Save human-readable plan
+        run: terraform show -no-color tfplan > tfplan.txt
+
+      - name: Upload Terraform plan (binary)
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: tfplan
+
+      - name: Upload Terraform plan (readable)
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan-text
+          path: tfplan.txtn  
         
