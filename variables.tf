@@ -19,9 +19,14 @@ variable "storage_accounts" {
 
 variable "virtual_network" {
   type = map(object({
-    name          = string
-    location      = string
-    rg_reference  = string
-    address_space = list(string)
+    name             = string
+    location         = string
+    rg_reference     = string
+    address_space    = list(string)
+    app_private_cidr = string
+    app_public_cidr  = string
+    db_private_cidr  = string
+    my_ip            = string
   }))
 }
+

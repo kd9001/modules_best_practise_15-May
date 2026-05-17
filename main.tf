@@ -21,8 +21,8 @@ module "storage_account" {
 }
 
 
-module "vnet" {
-  source = "./modules/virtual-network"
+module "network" {
+  source = "./modules/networking"
 
   for_each = var.virtual_network
 
@@ -30,5 +30,10 @@ module "vnet" {
   location            = each.value.location
   resource_group_name = module.resource_group[each.value.rg_reference].resource_group_name
   address_space       = each.value.address_space
+  app_public_cidr     = each.value.app_public_cidr
+  app_private_cidr    = each.value.app_private_cidr
+  db_private_cidr     = each.value.db_private_cidr
+  my_ip               = each.value.my_ip
+
 
 }
