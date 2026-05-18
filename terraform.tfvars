@@ -50,7 +50,7 @@ virtual_networks = {
     app_public_cidr  = "10.0.1.0/24"
     app_private_cidr = "10.0.2.0/24"
     db_private_cidr  = "10.0.3.0/24"
-    my_ip            = "YOUR.IP.HERE/32"
+    my_ip            = "47.189.24.75/32"
     nsg_name         = "nsg-public-dev"
     nsg_rules = {
       allow_http = {
@@ -72,7 +72,7 @@ virtual_networks = {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "22"
-        source_address_prefix      = "YOUR.IP.HERE/32"
+        source_address_prefix      = "47.189.24.75/32"
         destination_address_prefix = "*"
       }
     }
