@@ -44,7 +44,7 @@ jobs:
 
       - name: Terraform Plan
         env:
-          TF_VAR_vm_password: ${{ secrets.VM_ADMIN_PASSWORD }}
+          TF_VAR_vm_admin_password: ${{ secrets.VM_ADMIN_PASSWORD }}
         run: terraform plan -input=false -var-file="terraform.tfvars" -out=tfplan
 
       - name: Save human-readable plan
