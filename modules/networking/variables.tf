@@ -37,3 +37,23 @@ variable "my_ip" {
   description = "Your public IP for SSH access. Get it from https://ifconfig.me"
   type        = string
 }
+
+variable "nsg_name" {
+  description = "Name of the Network Security Group"
+  type        = string
+}
+
+variable "nsg_rules" {
+  description = "Map of NSG rules. Use direction = Inbound for ingress, Outbound for egress"
+  type = map(object({
+    name                       = string
+    priority                   = number
+    direction                  = string
+    access                     = string
+    protocol                   = string
+    source_port_range          = string
+    destination_port_range     = string
+    source_address_prefix      = string
+    destination_address_prefix = string
+  }))
+}
