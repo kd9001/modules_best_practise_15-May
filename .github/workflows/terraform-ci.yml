@@ -62,3 +62,8 @@ jobs:
           name: tfplan-text
           path: tfplan.txt
         
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env:
+          TF_VAR_vm_admin_password: ${{ secrets.VM_ADMIN_PASSWORD }}
+        run: terraform apply -auto-approve tfplan
