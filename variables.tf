@@ -46,13 +46,13 @@ variable "virtual_networks" {
 variable "vms" {
   description = "Map of VM configurations"
   type = map(object({
-    name                = string
-    location            = string
-    rg_reference        = string
-    network_reference   = string
-    public_ip_name      = string
-    admin_username      = string
-    admin_password      = string
-    vm_size             = optional(string, "Standard_B1s")
+    name              = string
+    location          = string
+    rg_reference      = string
+    network_reference = string
+    public_ip_name    = string
+    admin_username    = string
+    admin_password    = string
+    vm_size           = optional(string, "Standard_B1s")
   }))
 }

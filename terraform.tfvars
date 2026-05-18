@@ -84,10 +84,10 @@ vms = {
     name              = "vm-nginx-dev"
     location          = "eastus"
     rg_reference      = "rg1"
-    network_reference   = "dev"
+    network_reference = "dev"
     public_ip_name    = "pip-nginx-dev"
     admin_username    = "azureuser"
-       # admin_password removed — injected via pipeline secret
-    vm_size           = "Standard_B1s"
+    # admin_password removed — injected via pipeline secret
+    vm_size = "Standard_B1s"
   }
 }
