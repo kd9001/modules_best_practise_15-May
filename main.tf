@@ -47,6 +47,6 @@ module "vm" {
   subnet_id           = module.network[each.value.network_reference].app_public_subnet_id
   public_ip_name      = each.value.public_ip_name
   admin_username      = each.value.admin_username
-  admin_password      = each.value.admin_password
+  admin_password      = var.vm_admin_password
   vm_size             = each.value.vm_size
 }

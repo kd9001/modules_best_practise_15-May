@@ -52,7 +52,12 @@ variable "vms" {
     network_reference = string
     public_ip_name    = string
     admin_username    = string
-    admin_password    = string
     vm_size           = optional(string, "Standard_B1s")
   }))
+}
+
+variable "vm_admin_password" {
+  description = "Admin password for all VMs. Set via TF_VAR_vm_admin_password env var."
+  type        = string
+  sensitive   = true
 }
