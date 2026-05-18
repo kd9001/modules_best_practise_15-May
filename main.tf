@@ -38,7 +38,7 @@ module "network" {
 }
 
 module "vm" {
-  source   = "./modules/vm"
+  source   = "./modules/compute"
   for_each = var.vms
 
   vm_name                     = each.value.name
